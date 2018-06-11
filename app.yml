@@ -58,7 +58,7 @@
     - name: URL to the web aplication
       debug: msg='{{ ipify_public_ip }}'
       
-    - name: wait for 60 seconds
+    - name: wait for application start
       wait_for: timeout=310 host={{ ipify_public_ip }} port=8080
       #delegate_to: localhost
     - name: URL
