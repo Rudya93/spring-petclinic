@@ -52,6 +52,28 @@
         name: docker-compose@myservice
         state: started       
 
+    - name: Get my public IP from ipify.org
+      ipify_facts:
+
+    - name: URL to the web aplication
+      debug: msg='{{ ipify_public_ip }}'
+      
+   - name: wait for 60 seconds
+      wait_for: timeout=310 host={{ ipify_public_ip }} port=8080
+      #delegate_to: localhost
+    - name: URL
+      uri:
+        url: "http://{{ ipify_public_ip }}:8080/manage/health"
+        return_content: yes
+      register: webpage
+      #change:"'UP' not in webpage.content"
+    - name: Show Health
+      debug: msg='{{ webpage.json.status }}'
+    - name: Fail if UP is not in the page content
+      fail:
+        debug: 
+          msg: "APP NOT UP"
+      when: "'UP' not in webpage.content" 
         
     
 
