@@ -108,6 +108,10 @@ If everything is successful - you will see the PetClinic application on `$APP_VM
 	* *Optional* Setup SSl Certificate for Nginx yourself
 - Add Monitoring for Kubernetes
 	* Use either [Datadog](https://www.datadoghq.com/) or Prometheus addon
+        [use this](https://devopscube.com/setup-prometheus-monitoring-on-kubernetes/)
+        
+        
+        
 - Setup Jenkins
 	* Create jenkins file credentials with kubectl config
 	* Modify pipeline to build and push docker image with application to deploy new version to cluster using **kubectl apply ...**
