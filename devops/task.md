@@ -92,7 +92,7 @@ If everything is successful - you will see the PetClinic application on `$APP_VM
 - Setup Kubernetes Cluster
 	* Use [kops](https://github.com/kubernetes/kops/blob/master/docs/aws.md) to setup a Kubernetes Cluster on AWS
 	* Install **kubectl**[kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-kubectl-binary-via-native-package-management)
-	* Install and configure Dashboard Addon for Kubernetes
+	* Install and configure [Dashboard Addon] (https://kubernetes.github.io/ingress-nginx/deploy/) for Kubernetes
 - Setup Database Service
 	* Create Database name, login and password *Secrets* and deploy them to cluster
 	* Create a *Persistent Volume Claim* for Database
