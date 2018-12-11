@@ -1,0 +1,16 @@
+`kops create cluster --zones eu-central-1a ${NAME} --master-size=t2.micro --node-size=t2.micro --master-volume-size=10 --node-volume-size=10`
+`kops edit cluster ${NAME}`
+
+add to etcd
+export EDITOR=nano
+etcdClusters:
+  - etcdMembers:
+    - instanceGroup: master-eu-central-1a
+      name: a
+      volumeSize: 2 # add this line
+    name: main
+  - etcdMembers:
+    - instanceGroup: master-eu-central-1a
+      name: a
+      volumeSize: 2 # add this line
+    name: events
